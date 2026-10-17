@@ -235,9 +235,9 @@ Prompt C memberikan hasil yang paling bagus dan paling pas untuk dipasang ke sis
 
 ### Apa perbedaan paling terlihat antara Prompt A, Prompt B, dan Prompt C berdasarkan hasil testing kalian?
 
-• Prompt A (Perintah Sederhana): Hanya menghasilkan 1 kalimat penjelasan ulang dalam bentuk teks biasa. Hasilnya tidak berwujud kode JSON yang benar. Di dalamnya juga tidak ada pemeriksaan masalah, tingkat bahaya eror, ataupun saran perbaikan.
-• Prompt B (Perintah Berperan + Tugas + Situasi): Karena sudah diberi peran sebagai *Senior QA Engineer*, hasil pemeriksaannya menjadi sangat lengkap dan mendalam. Tapi, karena tidak diberi Constraint dan Output Format, sistem malah mengeluarkan tulisan teks panjang yang penuh tabel, emoji, dan 7 cara menguji eror yang dikarang-karang sendiri. Akibatnya, tulisan ini tidak bisa diubah menjadi kode JSON.
-• Prompt C (Perintah Lengkap & Teratur): Menyatukan kehebatan pemeriksaan dari Prompt B dengan aturan batasan serta bentuk hasil akhir yang ketat. Hasilnya adalah kode JSON yang pas, selalu teratur, tidak mengarang cerita di luar laporan pengguna, dan langsung lolos pengecekan aturan Pydantic.
+- Prompt A (Perintah Sederhana): Hanya menghasilkan 1 kalimat penjelasan ulang dalam bentuk teks biasa. Hasilnya tidak berwujud kode JSON yang benar. Di dalamnya juga tidak ada pemeriksaan masalah, tingkat bahaya eror, ataupun saran perbaikan.
+- Prompt B (Perintah Berperan + Tugas + Situasi): Karena sudah diberi peran sebagai *Senior QA Engineer*, hasil pemeriksaannya menjadi sangat lengkap dan mendalam. Tapi, karena tidak diberi Constraint dan Output Format, sistem malah mengeluarkan tulisan teks panjang yang penuh tabel, emoji, dan 7 cara menguji eror yang dikarang-karang sendiri. Akibatnya, tulisan ini tidak bisa diubah menjadi kode JSON.
+- Prompt C (Perintah Lengkap & Teratur): Menyatukan kehebatan pemeriksaan dari Prompt B dengan aturan batasan serta bentuk hasil akhir yang ketat. Hasilnya adalah kode JSON yang pas, selalu teratur, tidak mengarang cerita di luar laporan pengguna, dan langsung lolos pengecekan aturan Pydantic.
 
 ------------------------------------------------------
 
