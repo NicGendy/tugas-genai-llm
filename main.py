@@ -137,10 +137,7 @@ def parse_llm_output(raw_text: str) -> tuple[bool, TriageStructuredOutput | None
         return False, None
 
 
-# ==========================================
-# 4. API ENDPOINTS
-# ==========================================
-
+# FastAPI Endpoints
 @app.get("/")
 def home() -> dict[str, str]:
     return {"message": "GenAI Issue Triager API is running. Buka /docs untuk menguji endpoint."}
@@ -152,7 +149,6 @@ async def analyze_issue(request: AnalyzeRequest) -> APIResponse:
     messages = build_messages(request.text, request.prompt_version)
 
     try:
-        # Paksa JSON mode pada level API hanya ketika menguji Prompt C
         response_format = {"type": "json_object"} if request.prompt_version == "C" else None
 
         completion = await client.chat.completions.create(
@@ -176,7 +172,6 @@ async def analyze_issue(request: AnalyzeRequest) -> APIResponse:
     raw_result = completion.choices[0].message.content or ""
     is_valid, structured_data = parse_llm_output(raw_result)
 
-    # Jika Prompt C gagal menghasilkan JSON yang sesuai schema, angkat error agar mudah di-debug
     if request.prompt_version == "C" and not is_valid:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
