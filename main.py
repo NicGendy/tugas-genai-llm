@@ -102,7 +102,6 @@ SYSTEM_PROMPTS: dict[str, str] = {
 
 
 def build_messages(text: str, version: Literal["A", "B", "C"]) -> list[dict[str, str]]:
-    """Menyusun payload messages berdasarkan versi prompt yang dipilih."""
     user_content = f"Summarize this text:\n\n{text}" if version == "A" else text
     return [
         {"role": "system", "content": SYSTEM_PROMPTS[version]},
@@ -112,7 +111,6 @@ def build_messages(text: str, version: Literal["A", "B", "C"]) -> list[dict[str,
 
 # Fungsi Alat Bantuan untuk parsing dan inisialisasi client
 def get_groq_client() -> AsyncGroq:
-    """Inisialisasi client Groq dengan pengecekan API key eksplisit."""
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise HTTPException(
@@ -123,7 +121,6 @@ def get_groq_client() -> AsyncGroq:
 
 
 def parse_llm_output(raw_text: str) -> tuple[bool, TriageStructuredOutput | None]:
-    """Mencoba mem-parsing output LLM ke Pydantic schema secara aman."""
     cleaned_text = raw_text.strip()
     if cleaned_text.startswith("```"):
         lines = cleaned_text.splitlines()
